@@ -41,27 +41,27 @@
     <nav class="navbar navbar-dark bg-dark">
         <ul class="navbar-nav d-flex flex-row">
             <li class="nav-item mx-3 @Html.ActivePage("Home","Index")">
-                <a class="nav-link text-white" href="/Home/Index">Ana Sayfa</a>
+                <a class="nav-link text-white" href="~/Home/Index">Ana Sayfa</a>
             </li>
             <li class="nav-item @Html.ActivePage("Home","Randevu")">
-                <a class="nav-link text-white" href="/Home/Index">Randevu Al</a>
+                <a class="nav-link text-white" href="~/Home/Index">Randevu Al</a>
             </li>
             <li class="nav-item mx-3 @Html.ActivePage("Home","Birimler")">
-                <a class="nav-link text-white" href="/Home/Index">Birimlerimiz</a>
+                <a class="nav-link text-white" href="~/Home/Index">Birimlerimiz</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link text-white" href="#" role="button" id="dropdownMenuLink" aria-expanded="false">
                     Giriş Yap
                 </a>
                 <ul class="dropdown-menu dropdown-menu-dark">
-                    <li>
-                        <a class="dropdown-item text-white" href="/Home/Index">Hasta Girişi</a>
+                    <li class="@Html.ActivePage("hasta_table","Hasta")">
+                        <a class="dropdown-item text-white" href="~/hasta_table/Hasta">Hasta Girişi</a>
                     </li>
-                    <li class="@Html.ActivePage("doktor_table","Doktoer")">
-                        <a class="dropdown-item text-white" href="/doktor_table/Doktor">Doktor Girişi</a>
+                    <li class="@Html.ActivePage("doktor_table","Doktor")">
+                        <a class="dropdown-item text-white" href="~/doktor_table/Doktor">Doktor Girişi</a>
                     </li>
                     <li>
-                        <a class="dropdown-item text-white" href="/Home/Index">Personel Girişi</a>
+                        <a class="dropdown-item text-white" href="~/Home/Personel">Yönetim</a>
                     </li>
                 </ul>
             </li>

@@ -1,0 +1,37 @@
+﻿@using Web_Odev6.Models.Entity
+@{
+    ViewBag.Title = "HastaRandevu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Randevularım</h2>
+
+<div class="table-responsive">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Hasta İsim</th>
+                <th>Tarih</th>
+            </tr>
+        </thead>
+        <tbody>
+            @using (Web_OdevEntities3 db = new Web_OdevEntities3())
+            {
+                var aktif = Session["aktif_hasta"] as hasta_table;
+                foreach (var randevu in db.randevu_table)
+                {
+                    if (aktif.id == randevu.hasta_id)
+                    {
+                        <tr>
+                            <td>@randevu.id</td>
+                            <td>@aktif.isim</td>
+                            <td>@randevu.saat</td>
+                        </tr>
+                    }
+                }
+            }
+        </tbody>
+    </table>
+</div>
+

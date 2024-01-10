@@ -1,155 +1,155 @@
-﻿
-using Castle.Core.Internal;
-using Microsoft.Ajax.Utilities;
+﻿using Castle.Core.Internal;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
+using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using Web_Odev6.Models.Entity;
 
 namespace Web_Odev6.Controllers
 {
-    
-    public class doktor_tableController : Controller
+    public class hasta_tableController : Controller
     {
         private Web_OdevEntities3 db = new Web_OdevEntities3();
 
-        // GET: doktor_table
-
+        // GET: hasta_table
         public ActionResult Index()
         {
-            return View(db.doktor_table.ToList());
+            return View(db.hasta_table.ToList());
         }
 
-        // GET: doktor_table/Details/5
         [HttpGet]
-        public ActionResult Doktor()
+        public ActionResult Hasta()
         {
             return View();
         }
 
-   
         [HttpPost]
-        public ActionResult Doktor(doktor_table doktor)
+        public ActionResult Hasta(hasta_table hasta)
         {
-            var giris = db.doktor_table.FirstOrDefault(x=>x.kullaniciadi == doktor.kullaniciadi);
-            if(giris.parola == doktor.parola && giris != null)
+            var giris = db.hasta_table.FirstOrDefault(x => x.TC_No == hasta.TC_No);
+            if (giris.paroa == hasta.paroa && giris != null)
             {
-                Session["aktif_doktor"] = giris;
-                FormsAuthentication.SetAuthCookie(doktor.kullaniciadi,false);
-                return RedirectToAction("DoktorPanel","doktor_table");
+                Session["aktif_hasta"] = giris;
+                FormsAuthentication.SetAuthCookie(hasta.TC_No, false);
+                return RedirectToAction("HastaPanel", "hasta_table");
             }
             else
             {
-                return RedirectToAction("Index","Home");
+                return RedirectToAction("Index", "Home");
             }
         }
 
+        public ActionResult HastaPanel()
+        {
+            var aktif_hasta = Session["aktif_hasta"] as hasta_table;
+            return View(aktif_hasta);
+        }
+
+        // GET: hasta_table/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            doktor_table doktor_table = db.doktor_table.Find(id);
-            if (doktor_table == null)
+            hasta_table hasta_table = db.hasta_table.Find(id);
+            if (hasta_table == null)
             {
                 return HttpNotFound();
             }
-            return View(doktor_table);
+            return View(hasta_table);
         }
 
-        // GET: doktor_table/Create
+        // GET: hasta_table/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: doktor_table/Create
+        // POST: hasta_table/Create
         // Aşırı gönderim saldırılarından korunmak için bağlamak istediğiniz belirli özellikleri etkinleştirin. 
         // Daha fazla bilgi için bkz. https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,isim,soyisim,bolum,seviye,tecrube,kullaniciadi,parola")] doktor_table doktor_table)
+        public ActionResult Create([Bind(Include = "id,isim,soyisim,TC_No,cinsiyet,yas,paroa")] hasta_table hasta_table)
         {
             if (ModelState.IsValid)
             {
-                doktor_table.id = (db.hasta_table.OrderByDescending(x => x.id).FirstOrDefault()?.id ?? 0) + 1;
-                db.doktor_table.Add(doktor_table);
+                hasta_table.id = (db.hasta_table.OrderByDescending(x => x.id).FirstOrDefault()?.id ?? 0) + 1;
+                db.hasta_table.Add(hasta_table);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(doktor_table);
+            return View(hasta_table);
         }
 
-        // GET: doktor_table/Edit/5
+        // GET: hasta_table/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            doktor_table doktor_table = db.doktor_table.Find(id);
-            if (doktor_table == null)
+            hasta_table hasta_table = db.hasta_table.Find(id);
+            if (hasta_table == null)
             {
                 return HttpNotFound();
             }
-            return View(doktor_table);
+            return View(hasta_table);
         }
 
-        // POST: doktor_table/Edit/5
+        // POST: hasta_table/Edit/5
         // Aşırı gönderim saldırılarından korunmak için bağlamak istediğiniz belirli özellikleri etkinleştirin. 
         // Daha fazla bilgi için bkz. https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,isim,soyisim,bolum,seviye,tecrube,kullaniciadi,parola")] doktor_table doktor_table)
+        public ActionResult Edit([Bind(Include = "id,isim,soyisim,TC_No,cinsiyet,yas,paroa")] hasta_table hasta_table)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(doktor_table).State = EntityState.Modified;
+                db.Entry(hasta_table).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(doktor_table);
+            return View(hasta_table);
         }
 
-        // GET: doktor_table/Delete/5
+        // GET: hasta_table/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            doktor_table doktor_table = db.doktor_table.Find(id);
-            if (doktor_table == null)
+            hasta_table hasta_table = db.hasta_table.Find(id);
+            if (hasta_table == null)
             {
                 return HttpNotFound();
             }
-            return View(doktor_table);
+            return View(hasta_table);
         }
 
-        // POST: doktor_table/Delete/5
+        // POST: hasta_table/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            doktor_table doktor_table = db.doktor_table.Find(id);
-            db.doktor_table.Remove(doktor_table);
+            hasta_table hasta_table = db.hasta_table.Find(id);
+            db.hasta_table.Remove(hasta_table);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
 
-        [Authorize]
-        public ActionResult DoktorPanel(doktor_table doktor)
-        {
-            var aktif_doktor = Session["aktif_doktor"] as doktor_table;
-            return View(aktif_doktor);
+        public ActionResult HastaRandevu()
+        {   
+            return View();
         }
 
         protected override void Dispose(bool disposing)
@@ -160,19 +160,5 @@ namespace Web_Odev6.Controllers
             }
             base.Dispose(disposing);
         }
-
-        [HttpGet]
-        public ActionResult HastaCagir()
-        { 
-            return View();
-        }
-
-        [HttpPost]
-        public ActionResult HastaCagir(String id)
-        {
-            var hasta = db.hasta_table.Find(int.Parse(id));
-            return View(hasta);
-        }
-
     }
 }

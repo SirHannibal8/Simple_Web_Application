@@ -1,0 +1,51 @@
+﻿@model Web_Odev6.Models.Entity.hastalik
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>hastalik</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.hastalık)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hastalık)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.detay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.detay)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ilac_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ilac_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hasta_table.isim)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hasta_table.isim)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

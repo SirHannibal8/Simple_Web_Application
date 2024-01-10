@@ -299,8 +299,13 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\birimler_tableController.cs" />
     <Compile Include="Controllers\doktor_tableController.cs" />
+    <Compile Include="Controllers\hastaliksController.cs" />
+    <Compile Include="Controllers\hasta_tableController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ilaclar_tableController.cs" />
+    <Compile Include="Controllers\randevu_tableController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -421,9 +426,41 @@
     <Content Include="Views\doktor_table\Index.cshtml" />
     <Content Include="Views\doktor_table\Doktor.cshtml" />
     <Content Include="Views\doktor_table\DoktorPanel.cshtml" />
+    <Content Include="Views\hasta_table\Create.cshtml" />
+    <Content Include="Views\hasta_table\Delete.cshtml" />
+    <Content Include="Views\hasta_table\Details.cshtml" />
+    <Content Include="Views\hasta_table\Edit.cshtml" />
+    <Content Include="Views\hasta_table\Index.cshtml" />
+    <Content Include="Views\birimler_table\Create.cshtml" />
+    <Content Include="Views\birimler_table\Delete.cshtml" />
+    <Content Include="Views\birimler_table\Details.cshtml" />
+    <Content Include="Views\birimler_table\Edit.cshtml" />
+    <Content Include="Views\birimler_table\Index.cshtml" />
+    <Content Include="Views\hasta_table\Hasta.cshtml" />
+    <Content Include="Views\hasta_table\HastaPanel.cshtml" />
+    <Content Include="Views\randevu_table\Create.cshtml" />
+    <Content Include="Views\randevu_table\Delete.cshtml" />
+    <Content Include="Views\randevu_table\Details.cshtml" />
+    <Content Include="Views\randevu_table\Edit.cshtml" />
+    <Content Include="Views\randevu_table\Index.cshtml" />
+    <Content Include="Views\hasta_table\HastaRandevu.cshtml" />
+    <Content Include="Views\doktor_table\HastaCagir.cshtml" />
+    <Content Include="Views\ilaclar_table\Create.cshtml" />
+    <Content Include="Views\ilaclar_table\Delete.cshtml" />
+    <Content Include="Views\ilaclar_table\Details.cshtml" />
+    <Content Include="Views\ilaclar_table\Edit.cshtml" />
+    <Content Include="Views\ilaclar_table\Index.cshtml" />
+    <Content Include="Views\hastaliks\Create.cshtml" />
+    <Content Include="Views\hastaliks\Delete.cshtml" />
+    <Content Include="Views\hastaliks\Details.cshtml" />
+    <Content Include="Views\hastaliks\Edit.cshtml" />
+    <Content Include="Views\hastaliks\Index.cshtml" />
+    <Content Include="Views\hastaliks\Teshis.cshtml" />
+    <Content Include="Views\Home\Personel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="MyModels\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

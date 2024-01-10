@@ -1,0 +1,67 @@
+﻿@model Web_Odev6.Models.Entity.hasta_table
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>hasta_table</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.isim)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.isim)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.soyisim)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.soyisim)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TC_No)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TC_No)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cinsiyet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cinsiyet)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.yas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.yas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.paroa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.paroa)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

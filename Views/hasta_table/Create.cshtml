@@ -1,0 +1,64 @@
+﻿@model Web_Odev6.Models.Entity.hasta_table
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-4">
+    <h2>Create Hasta</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.isim, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.isim, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.isim, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.soyisim, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.soyisim, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.soyisim, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.TC_No, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.TC_No, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.TC_No, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.cinsiyet, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.cinsiyet, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.cinsiyet, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.yas, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.yas, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.yas, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.paroa, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.paroa, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.paroa, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-12">
+                <input type="submit" value="Create" class="btn btn-primary" />
+                @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-secondary" })
+            </div>
+        </div>
+    }
+</div>

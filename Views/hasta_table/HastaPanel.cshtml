@@ -1,0 +1,85 @@
+﻿@using Web_Odev6.Models.Entity
+@using Web_Odev6.ActiveFolder
+@model Web_Odev6.Models.Entity.hasta_table
+@{
+    ViewBag.Title = "HastaPanel";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-4">
+    <h2>Hasta Bilgileri</h2>
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>İsim</th>
+                <th>Soyisim</th>
+                <th>TC No</th>
+                <th>Cinsiyet</th>
+                <th>Yaş</th>
+                <th>Paroa</th>
+                <th>Hastalıklar</th>
+                <th>Hastalık Detay</th>
+                <th>İlaçlar</th>
+                <th>Randevular</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.id</td>
+                <td>@Model.isim</td>
+                <td>@Model.soyisim</td>
+                <td>@Model.TC_No</td>
+                <td>@Model.cinsiyet</td>
+                <td>@Model.yas</td>
+                <td>@Model.paroa</td>
+                @using (Web_OdevEntities3 db = new Web_OdevEntities3())
+                {
+                    <td>@foreach (var hastalik in db.hastalik)
+                    {
+                        if (hastalik.hasta_id == Model.id)
+                        {
+                            <div>@hastalik.hastalık</div>
+                            <td><div>@hastalik.detay</div></td>
+                            <td>@foreach (var ilac in db.ilaclar_table)
+                            {
+                                if (ilac.ilac_id == hastalik.ilac_id)
+                                {
+                                    <div>@ilac.ilac</div>
+                                }
+                            }
+                            </td>
+                        }
+                    }
+                    </td>
+                    <td>@foreach (var randevu in db.randevu_table)
+                    {
+                        if (randevu.hasta_id == Model.id)
+                        {
+                            <div>@randevu.saat</div>
+                        }
+                    }
+                    </td>
+                    db.Dispose();
+                }
+            </tr>
+        </tbody>
+    </table>
+    <div class="row">
+        <div class="col-md-4">
+            <p class="@Html.ActivePage("randevu_table", "Create")">
+                <a role="button" class="btn btn-primary btn-lg active" href="~/randevu_table/Create">Randevu Al</a>
+
+            </p>
+        </div>
+
+        <div class="col-md-4 ">
+            <p class="@Html.ActivePage("hasta_table", "HastaRandevu")">
+                <a role="button" class="btn btn-secondary btn-lg active" href="~/hasta_table/HastaRandevu">Randevuları Listele</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+

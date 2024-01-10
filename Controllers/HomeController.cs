@@ -32,5 +32,10 @@ namespace Web_Odev6.Controllers
             return View();
         }
 
+        public ActionResult Personel()
+        {
+            return View();
+        }
+
     }
 }

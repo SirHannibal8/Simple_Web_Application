@@ -1,0 +1,57 @@
+﻿@model Web_Odev6.Models.Entity.hastalik
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>hastalik</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.hastalık)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hastalık)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.detay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.detay)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ilac_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ilac_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hasta_table.isim)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hasta_table.isim)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Web_Odev6.Models.Entity.hasta_table>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.isim)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.soyisim)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TC_No)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cinsiyet)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.yas)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.paroa)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.isim)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.soyisim)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TC_No)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cinsiyet)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.yas)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.paroa)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>
