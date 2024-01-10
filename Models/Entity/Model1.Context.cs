@@ -13,10 +13,10 @@ namespace Web_Odev6.Models.Entity
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Web_OdevEntities2 : DbContext
+    public partial class Web_OdevEntities3 : DbContext
     {
-        public Web_OdevEntities2()
-            : base("name=Web_OdevEntities2")
+        public Web_OdevEntities3()
+            : base("name=Web_OdevEntities3")
         {
         }
     
@@ -25,7 +25,12 @@ namespace Web_Odev6.Models.Entity
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<birimler_table> birimler_table { get; set; }
         public virtual DbSet<doktor_table> doktor_table { get; set; }
         public virtual DbSet<hasta_table> hasta_table { get; set; }
+        public virtual DbSet<hastalik> hastalik { get; set; }
+        public virtual DbSet<ilaclar_table> ilaclar_table { get; set; }
+        public virtual DbSet<randevu_table> randevu_table { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
     }
 }

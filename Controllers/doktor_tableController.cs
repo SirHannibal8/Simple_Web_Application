@@ -15,7 +15,7 @@ namespace Web_Odev6.Controllers
     
     public class doktor_tableController : Controller
     {
-        private Web_OdevEntities2 db = new Web_OdevEntities2();
+        private Web_OdevEntities3 db = new Web_OdevEntities3();
 
         // GET: doktor_table
         
